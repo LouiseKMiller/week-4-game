@@ -4,14 +4,99 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Buffy RPG game - Louise Miller Assignment 4</title>
+	<!-- css -->
 	<link rel="stylesheet" href="assets/css/reset.css">
 	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- Google fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet' type='text/css'>
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+</head>
+
+
+<!-- BODY STARTS HERE
+-->
+
+<body>
+<audio src="assets/images/buffyTheme.mp3"></audio>
+<div class="container page-wrap">
+<!-- 
+	Title 
+ -->
+ <h1 class="blood">Buffy The Vampire Slayer<br>RPG</h1>
+
+<!-- 
+Section where we show all the possibe characters to choose from before the game starts.  Once user chooses Your Character, this section disappears.
+ -->
+ <div class="topRowOfChars">
+ <h2>To begin, pick your character</h2>
+ 	<section id="buffyChar" class="charBlock">
+ 		<h3>Buffy</h3>
+ 		<img src="assets/images/buffy.jpg" alt="buffy" class="charImage">
+ 		<h3>100</h3>
+ 	</section>
+ 	<section id="angelChar" class="charBlock">
+ 		<h3>Angel</h3>
+ 		<img src="assets/images/angel.jpg" alt="angel" class="charImage">
+ 		<h3>100</h3>
+ 	</section>
+ 	<section id="willowChar" class="charBlock">
+ 		<h3>Willow</h3>
+ 		<img src="assets/images/willow.jpg" alt="willow" class="charImage">
+ 		<h3>100</h3>
+ 	</section>
+ 	<section id="spikeChar" class="charBlock">
+ 		<h3>Spike</h3>
+ 		<img src="assets/images/spike.jpg" alt="spike" class="charImage">
+ 		<h3>100</h3>
+ 	</section>
+ </div>
+
+<!-- 
+Section where we show Your Character once user has chosen.  
+ -->
+ <section>
+ 	<h2>Your Character</h2>
+ 	<div id="yourCharDiv">
+ 		
+	</div>
+ </section>
+
+<!-- 
+Section where we show Your Character once user has chosen.  
+ -->
+ <section>
+ 	<h2>Enemies Available to Attack</h2>
+ 	<div id="enemiesDiv">
+ 	</div>
+ </section>
+
+<!-- 
+Section for the fight button.  
+ -->
+ <h2>Fight Section</h2>
+
+ <!-- 
+Section shere we show the Defender once user has chosen, or last remaining character.  
+ -->
+ <h2>Defender</h2>
+
+<!-- 
+Section where we show current score. 
+-->
+ <div>
+ 	<p>You attacked</p>
+ 	<p>Defender attacked you back</p>
+ </div>
+
+
+
+
+</div>
+	<footer class="site-footer">
+		<small>&copy; Copyright 2016 Louise K. Miller</small>
+	</footer>
 
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
-
-
-</head>
-<body>
-
 </body>
 </html>

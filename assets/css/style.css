@@ -1,2 +1,140 @@
 /*style sheet for homework 4*/
 /*Buffy RPG game - Louise K Miller*/
+*,
+ *:before,
+ *:after {
+ 	-webkit-box-sizing: border-box;
+ 	-moz-box-sizing: border-box;
+ 	box-sizing: border-box;
+ }
+
+ .container {
+ 	margin: 0 auto;
+ 	width: 100%;
+ 	max-width: 1400px;
+	background-image: url("../images/graveyard2.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	padding: 20px 30px 20px 50px;
+
+}
+
+body {
+	color: silver;
+	font-family: 'Open Sans', sans-serif;
+}
+
+
+
+.topRowOfChars {
+	padding-bottom: 15px;
+	border-bottom: 5px solid #000;
+}
+
+
+/* ==================================
+Title appearing at top of page 
+=====================================*/
+
+h1 {
+	font-family: 'Sofia', cursive;
+	font-size: 50px;
+	height: 85px;
+	text-align: right;
+}
+
+.blood {
+       color:silver;
+       text-shadow:
+       2px 2px 1px #300000,
+       2px 3px 1px #400000,
+       2px 4px 1px #500000,
+       2px 5px 1px #600000,
+       2px 6px 1px #700000,
+       2px 7px 1px #800000,
+       2px 8px 1px #900000,
+       2px 9px 1px #A00000,
+       2px 10px 1px #B00000,
+       2px 11px 1px #C00000,
+       2px 12px 1px #D00000,
+       2px 13px 1px #E00000,
+       2px 14px 1px #F00000,
+       2px 15px 1px #FA0000,
+       2px 16px 1px #FB0000,
+       2px 17px 1px #FC0000,
+       2px 18px 1px #FD0000,
+       2px 20px 1px #FE0000,
+       2px 22px 2px #FF0000;
+}
+
+/* ===================================
+Major headings for remaining rows 
+======================================*/
+
+h2 {
+	font-size: 25px;
+	line-height: 35px;
+	margin-bottom: 10px;
+	text-shadow: 2px 1px #d00000;
+}
+
+/* ======================================
+movable blocks for each character 
+=========================================*/
+
+.charBlock {
+	border: 5px solid #C00000;
+	outline: 2px solid #000;
+	display: inline-block;
+	text-align: center;
+	margin: 0px 15px;
+	width: 180px;
+	height: 150px;
+	vertical-align: top;
+	background-image: url(../images/fire.jpg);
+	color: silver;
+}
+
+.charImage {
+	width: 160px;
+	height: 100px;
+	border: 1px solid #000;
+	border-radius: 30%;
+}
+
+
+/*===================================================
+Sticky Footer
+===================================================
+*/
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+.page-wrap {
+	min-height: 100%;
+	/* equal to footer height */
+	margin-bottom: -30px;
+}
+
+.page-wrap:after {
+	content: "";
+	display: block;
+}
+
+.site-footer, .page-wrap:after {
+	height: 30px;
+}
+
+.site-footer {
+	color: #90c1d1;
+	background-color: #000;
+	line-height: 30px;
+	font-size: 13px;
+	text-align: center;
+
+}
