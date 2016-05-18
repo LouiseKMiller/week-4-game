@@ -8,14 +8,19 @@
  	box-sizing: border-box;
  }
 
+html {
+	background: url("../images/graveyard2.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
  .container {
  	margin: 0 auto;
  	width: 100%;
  	max-width: 1400px;
-	background-image: url("../images/graveyard2.jpg");
-	background-size: 100%;
-	background-repeat: no-repeat;
-	padding: 20px 30px 20px 50px;
+	padding: 20px 30px 20px 30px;
 
 }
 
@@ -40,7 +45,9 @@ h1 {
 	font-family: 'Sofia', cursive;
 	font-size: 50px;
 	height: 85px;
+	width: 550px;
 	text-align: right;
+	float: right;
 }
 
 .blood {
@@ -74,7 +81,6 @@ Major headings for remaining rows
 h2 {
 	font-size: 25px;
 	line-height: 35px;
-	margin-bottom: 10px;
 	text-shadow: 2px 1px #d00000;
 }
 
@@ -87,19 +93,26 @@ movable blocks for each character
 	outline: 2px solid #000;
 	display: inline-block;
 	text-align: center;
-	margin: 0px 15px;
-	width: 180px;
-	height: 150px;
+	margin: 0px 10px;
+	width: 150px;
+	height: 120px;
 	vertical-align: top;
 	background-image: url(../images/fire.jpg);
 	color: silver;
 }
 
 .charImage {
-	width: 160px;
-	height: 100px;
+	width: 120px;
+	height: 80px;
 	border: 1px solid #000;
 	border-radius: 30%;
+}
+
+/*==================================================
+Score Section
+=================================================*/
+#scoreSection {
+	padding-top: 10px;
 }
 
 
