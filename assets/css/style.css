@@ -95,7 +95,7 @@ movable blocks for each character
 	text-align: center;
 	margin: 0px 10px;
 	width: 150px;
-	height: 120px;
+	height: 130px;
 	vertical-align: top;
 	background-image: url(../images/fire.jpg);
 	color: silver;
@@ -107,6 +107,16 @@ movable blocks for each character
 	border: 1px solid #000;
 	border-radius: 30%;
 }
+/*==================================================
+Your Character and Defender rows of fixed height
+=================================================*/
+.fixedRow {
+	height:160px;
+}
+
+
+
+
 
 /*==================================================
 Score Section
@@ -145,7 +155,7 @@ html, body {
 
 .site-footer {
 	color: #90c1d1;
-	background-color: #000;
+
 	line-height: 30px;
 	font-size: 13px;
 	text-align: center;

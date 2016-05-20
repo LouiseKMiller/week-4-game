@@ -30,7 +30,7 @@ Section where we show all the possibe characters to choose from before the game 
  -->
  <section id="topRowOfChars">
  <h2>To begin, pick your character</h2>
- 	<div id="buffyChar" class="charBlock">
+<!--  	<div id="buffyChar" class="charBlock">
  		<h3 class="charName">Buffy</h3>
  		<img src="assets/images/buffy.jpg" alt="buffy" class="charImage">
  		<h4 class="charStrength">180</h3>
@@ -49,13 +49,13 @@ Section where we show all the possibe characters to choose from before the game 
  		<h3 class="charName">Spike</h3>
  		<img src="assets/images/spike.jpg" alt="spike" class="charImage">
  		<h4 class="charStrength">200</h3>
- 	</div>
+ 	</div> -->
  </section>
 
 <!-- 
 Section where we show Your Character once user has chosen.  
  -->
- <section>
+ <section class="fixedRow">
  	<h2>Your Character</h2>
  	<div id="yourCharDiv">
  		
@@ -74,12 +74,12 @@ Section where we show Your Character once user has chosen.
 <!-- 
 Section for the fight button.  
  -->
- <h2>Fight Section</h2>
-<button type="button">Fight!</button>
+ <h2>Attack Section</h2>
+<button type="button" id="attackButton">Attack!</button>
  <!-- 
 Section shere we show the Defender once user has chosen, or last remaining character.  
  -->
- <section>
+ <section class="fixedRow">
  	<h2>Defender</h2>
  	<div id="defenderDiv"></div>
 </section>
@@ -89,6 +89,12 @@ Section where we show current score.
  <section id="scoreSection">
  	<p>You attacked&nbsp;<span class="defenderName"></span>&nbsp;for&nbsp;<span id="defenderDamage"></span>&nbsp;damage.</p>
  	<p><span class="defenderName"></span>&nbsp;attacked you back for&nbsp;<span id="yourDamage"></span>&nbsp;damage.</p>
+</section>
+ 	
+ 	
+ <section id="gameResult">
+ 	<h2></h2>
+	<button type="button" id="restartButton">Restart</button>
  </section>
 
 
