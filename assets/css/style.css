@@ -8,12 +8,11 @@
  	box-sizing: border-box;
  }
 
-html {
-	background: url("../images/graveyard2.jpg") no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
+body {
+	background-image: url("../images/graveyard2.jpg"); 
 	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
  .container {
@@ -75,14 +74,25 @@ h1 {
 }
 
 /* ===================================
-Major headings for remaining rows 
+Other Typography
 ======================================*/
 
 h2 {
-	font-size: 25px;
-	line-height: 35px;
+	font-size: 35px;
 	text-shadow: 2px 1px #d00000;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
+
+h3, p {
+	font-size: 20px;
+	text-shadow: 2px 1px #000;
+	margin-bottom: 5px;
+}
+
+
+
+
 
 /* ======================================
 movable blocks for each character 
@@ -110,20 +120,40 @@ movable blocks for each character
 /*==================================================
 Your Character and Defender rows of fixed height
 =================================================*/
-.fixedRow {
-	height:160px;
+.fixedHeight {
+	height:220px;
 }
 
+.defenderContainer {
+	width: 700px;
+	display: inline-block;
+	vertical-align: top;
+}
 
+.enemyContainer {
+	display: inline-block;
+	vertical-align: top;
+}
+
+/*==================================================
+Button
+=================================================*/
+
+button {
+	font-size: 25px;
+	border-radius: 10%;
+	border-width: 2px;
+	border-color: #000;
+}
 
 
 
 /*==================================================
 Score Section
 =================================================*/
-#scoreSection {
+/*#scoreSection {
 	padding-top: 10px;
-}
+}*/
 
 
 /*===================================================
@@ -141,7 +171,7 @@ html, body {
 .page-wrap {
 	min-height: 100%;
 	/* equal to footer height */
-	margin-bottom: -30px;
+	margin-bottom: -20px;
 }
 
 .page-wrap:after {
@@ -150,13 +180,13 @@ html, body {
 }
 
 .site-footer, .page-wrap:after {
-	height: 30px;
+	height: 20px;
 }
 
 .site-footer {
 	color: #90c1d1;
 
-	line-height: 30px;
+	line-height: 20px;
 	font-size: 13px;
 	text-align: center;
 

@@ -1,6 +1,10 @@
 // javascript file for Assignment 4
 // Buffy RPG game - Louise K Miller
-$(document).ready (function() {
+
+//=======================================================
+//  Prior to Page Load, declare variables
+//  Characters defined in characters object
+//========================================================
 
 	var gameState = "begin";
 	var yourCharName;
@@ -11,13 +15,16 @@ $(document).ready (function() {
 	var defenderPoints;
 	var attackCounter = 1;
 	var roundCounter = 0;
+	var yourChar;
+	var defenderChar;
 	var audio = new Audio('assets/images/buffyTheme.mp3');
 
 	var characters = [
 		{charID: "buffyChar",
 		 charName: "Buffy",
 		 startPoints: 180,
-		 strength: 15,
+		 strength: 18,
+		 counterStrength: 22,
 		 imgHtml: '<img src="assets/images/buffy.jpg" alt="buffy" class="charImage">'
 		},
 
@@ -25,6 +32,7 @@ $(document).ready (function() {
 		 charName: "Angel",
 		 startPoints: 120,
 		 strength: 20,
+		 counterStrength: 15,
 		 imgHtml: '<img src="assets/images/angel.jpg" alt="angel" class="charImage">'
 		},
 
@@ -32,6 +40,7 @@ $(document).ready (function() {
 		 charName: "Willow",
 		 startPoints: 150,
 		 strength: 10,
+		 counterStrength: 20,
 		 imgHtml: '<img src="assets/images/willow.jpg" alt="willow" class="charImage">'
 		},
 
@@ -39,33 +48,37 @@ $(document).ready (function() {
 		 charName: "Spike",
 		 startPoints: 200,
 		 strength: 25,
+		 counterStrength: 40,
 		 imgHtml: '<img src="assets/images/spike.jpg" alt="spike" class="charImage">'
 		}
 		];
 
 //=======================================================
-//  On Page Load, and after restart
+//  Prior to Page Load, and after restart
 //  create and add character blocks to top row
 //========================================================
 
 	function restart() {
 		for (var i=0; i<characters.length; i++) {
 
-		$('#topRowOfChars').append("<div id='"+characters[i].charID+"' class='charBlock'></div");
-		var currentCharID = "#"+characters[i].charID;
-		$(currentCharID).append("<h3 class='charName'>"+characters[i].charName+"</h3>");
-		$(currentCharID).append(characters[i].imgHtml);
-		$(currentCharID).append("<h4 class='charPoints'>"+characters[i].startPoints+"</h3></div>")
-
+			$('#topRowOfChars').append("<div id='"+characters[i].charID+"' class='charBlock'></div");
+			var currentCharID = "#"+characters[i].charID;
+			$(currentCharID).append("<h4 class='charName'>"+characters[i].charName+"</h3>");
+			$(currentCharID).append(characters[i].imgHtml);
+			$(currentCharID).append("<h5 class='charPoints'>"+characters[i].startPoints+"</h3></div>")
 		};
-		$('#topRowOfChars').show();
+
 		$("#scoreSection").hide();
 		$("#restartButton").hide();
 		$("#gameResult").hide();
+		$('#topRowOfChars').show();
+
 		audio.play();
 	};
 
 	restart();
+
+$(document).ready (function() {
 
 
 //=======================================================
@@ -79,19 +92,23 @@ $(document).ready (function() {
 	$("#topRowOfChars").on("click", ".charBlock", function() {
 		if (gameState == "begin") {
 
-			var charPicked = ($(this));
-			yourCharName = (jQuery(this).children("h3").text());
-			for (i=0; i<characters.length; i++) {
-				if (characters[i].charName==yourCharName) 
-					yourChar=i;
-			}
-			yourPoints = characters[yourChar].startPoints;
+			var charPicked = $(this);
 
+//  find characters array number for selected character
+
+			var yourCharID = $(this).attr('id');
+			for (var i=0; i<characters.length; i++) {
+				if (characters[i].charID==yourCharID) 
+					yourChar=i;
+			};
+			yourCharName = characters[yourChar].charName;
+			yourPoints = characters[yourChar].startPoints;
 
 			charPicked.addClass('yourCharacter');
 			$("#yourCharDiv").append(charPicked);
 			$("#enemiesDiv").append($(".charBlock:not(.yourCharacter)"));
 			$("#topRowOfChars").hide();
+
 			gameState = "pickDefender";
 		};
 
@@ -108,17 +125,20 @@ $(document).ready (function() {
 	$("#enemiesDiv").on("click", ".charBlock", function() {
 		if (gameState=="pickDefender") {
 			$('#gameResult').hide();
-			var charPicked = ($(this));
-			defenderName = (jQuery(this).children("h3").text());
+			var charPicked = $(this);
+			var defenderID = $(this).attr('id');
 			for (i=0; i<characters.length; i++) {
-				if (characters[i].charName==defenderName) 
+				if (characters[i].charID==defenderID) 
 					defenderChar=i;
 			}
+			defenderName = characters[defenderChar].charName;
 			defenderPoints = characters[defenderChar].startPoints;
 
 			charPicked.addClass('defenderCharacter');
 			$("#defenderDiv").append(charPicked);
+
 			gameState="playGame";
+
 		};
 	});
 
@@ -131,38 +151,40 @@ $(document).ready (function() {
 	$("#attackButton").on("click", function() {
 		if (gameState=="playGame") {
 			var damageToDefender = attackCounter*characters[yourChar].strength;
-			var damageToYou = characters[defenderChar].strength;
+			var damageToYou = characters[defenderChar].counterStrength;
 			attackCounter++;
 			yourPoints = Math.max(0, (yourPoints - damageToYou));
 			defenderPoints = Math.max(0, (defenderPoints - damageToDefender));
-			$(".yourCharacter h4").html(yourPoints);
-			$(".defenderCharacter h4").html(defenderPoints);
+			$(".yourCharacter h5").html(yourPoints);
+			$(".defenderCharacter h5").html(defenderPoints);
 
 //	if yourPoints is <= zero, announce you lose, and show restart button
 			if (yourPoints<=0) {
 				$("#scoreSection").hide();
-				$("#gameResult h2").html("You have been defeated... GAME OVER!!")
+				$("#gameResult h3").html("You have been defeated... GAME OVER!!")
 				$("#gameResult").show();
 				$("#restartButton").show();
 				gameState = "gameOver";
 			}
 
-			else if (defenderPoints<=0 && roundCounter<2) {
+			else if (defenderPoints<=0 && roundCounter<(characters.length-2)) {
+				console.log(roundCounter);
+
 				$("#scoreSection").hide();
 				$('.defenderCharacter').remove();
 				roundCounter++;
-				$("#gameResult h2").html("You have defeated "+ defenderName+", you can choose to fight another enemy.");
+				$("#gameResult h3").html("You have defeated "+ defenderName+", you can choose to fight another enemy.");
 					gameState = "pickDefender";
 				$("#gameResult").show();
 				$("#restartButton").hide();
 			}
 
-			else if (defenderPoints<=0 && roundCounter==2) {
+			else if (defenderPoints<=0 && roundCounter==(characters.length-2)) {
+				console.log(roundCounter);
 				$("#scoreSection").hide();
 				$('.defenderCharacter').remove();
-				roundCounter=0;
-				$("#gameResult h2").html("Congratulations! You've won!");
-					gameState = "gameOver";
+				$("#gameResult h3").html("Congratulations! You've won!");
+				gameState = "gameOver";
 				$("#gameResult").show();
 				$("#restartButton").show();
 			}
@@ -176,8 +198,8 @@ $(document).ready (function() {
 			} //if round continues
 		}
 		//if playGame state
-		else {
-			$("#gameResult h2").html("No enemy here!")
+		else if (gameState=="pickDefender") {
+			$("#gameResult h3").html("No enemy here!")
 			$("#gameResult").show();
 		};
 
@@ -192,6 +214,7 @@ $(document).ready (function() {
 		audio.load();
 		gameState = "begin";
 		attackCounter = 1;
+		roundCounter = 0;
 		$(".charBlock").remove();
 		restart();
 		$("#scoreSection").hide();
