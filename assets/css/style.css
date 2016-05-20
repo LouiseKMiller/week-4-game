@@ -44,7 +44,7 @@ h1 {
 	font-family: 'Sofia', cursive;
 	font-size: 50px;
 	height: 85px;
-	width: 550px;
+	width: 530px;
 	text-align: right;
 	float: right;
 }
@@ -145,15 +145,6 @@ button {
 	border-width: 2px;
 	border-color: #000;
 }
-
-
-
-/*==================================================
-Score Section
-=================================================*/
-/*#scoreSection {
-	padding-top: 10px;
-}*/
 
 
 /*===================================================

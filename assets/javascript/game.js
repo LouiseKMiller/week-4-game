@@ -68,7 +68,7 @@
 			$(currentCharID).append("<h5 class='charPoints'>"+characters[i].startPoints+"</h3></div>")
 		};
 
-		$("#scoreSection").hide();
+		$("#scoreDiv").hide();
 		$("#restartButton").hide();
 		$("#gameResult").hide();
 		$('#topRowOfChars').show();
@@ -160,7 +160,7 @@ $(document).ready (function() {
 
 //	if yourPoints is <= zero, announce you lose, and show restart button
 			if (yourPoints<=0) {
-				$("#scoreSection").hide();
+				$("#scoreDiv").hide();
 				$("#gameResult h3").html("You have been defeated... GAME OVER!!")
 				$("#gameResult").show();
 				$("#restartButton").show();
@@ -170,7 +170,7 @@ $(document).ready (function() {
 			else if (defenderPoints<=0 && roundCounter<(characters.length-2)) {
 				console.log(roundCounter);
 
-				$("#scoreSection").hide();
+				$("#scoreDiv").hide();
 				$('.defenderCharacter').remove();
 				roundCounter++;
 				$("#gameResult h3").html("You have defeated "+ defenderName+", you can choose to fight another enemy.");
@@ -181,7 +181,7 @@ $(document).ready (function() {
 
 			else if (defenderPoints<=0 && roundCounter==(characters.length-2)) {
 				console.log(roundCounter);
-				$("#scoreSection").hide();
+				$("#scoreDiv").hide();
 				$('.defenderCharacter').remove();
 				$("#gameResult h3").html("Congratulations! You've won!");
 				gameState = "gameOver";
@@ -194,7 +194,7 @@ $(document).ready (function() {
 				$(".defenderName").html(defenderName);
 				$("#defenderDamage").html(damageToDefender);
 				$("#yourDamage").html(damageToYou);
-				$("#scoreSection").show();
+				$("#scoreDiv").show();
 			} //if round continues
 		}
 		//if playGame state
@@ -217,7 +217,7 @@ $(document).ready (function() {
 		roundCounter = 0;
 		$(".charBlock").remove();
 		restart();
-		$("#scoreSection").hide();
+		$("#scoreDiv").hide();
 		$("#gameResult").hide();
 
 
