@@ -22,33 +22,33 @@
 	var characters = [
 		{charID: "buffyChar",
 		 charName: "Buffy",
-		 startPoints: 180,
-		 strength: 18,
-		 counterStrength: 22,
+		 startPoints: 185,
+		 strength: 15,
+		 counterStrength: 10,
 		 imgHtml: '<img src="assets/images/buffy.jpg" alt="buffy" class="charImage">'
 		},
 
 		{charID: "angelChar",
 		 charName: "Angel",
-		 startPoints: 120,
-		 strength: 20,
-		 counterStrength: 15,
+		 startPoints: 165,
+		 strength: 12,
+		 counterStrength: 18,
 		 imgHtml: '<img src="assets/images/angel.jpg" alt="angel" class="charImage">'
 		},
 
 		{charID: "willowChar",
 		 charName: "Willow",
-		 startPoints: 150,
+		 startPoints: 170,
 		 strength: 10,
-		 counterStrength: 20,
+		 counterStrength: 22,
 		 imgHtml: '<img src="assets/images/willow.jpg" alt="willow" class="charImage">'
 		},
 
 		{charID: "spikeChar",
 		 charName: "Spike",
-		 startPoints: 200,
-		 strength: 25,
-		 counterStrength: 40,
+		 startPoints: 190,
+		 strength: 18,
+		 counterStrength: 25,
 		 imgHtml: '<img src="assets/images/spike.jpg" alt="spike" class="charImage">'
 		}
 		];
@@ -173,7 +173,8 @@ $(document).ready (function() {
 				$("#scoreDiv").hide();
 				$('.defenderCharacter').remove();
 				roundCounter++;
-				$("#gameResult h3").html("You have defeated "+ defenderName+", you can choose to fight another enemy.");
+
+				$("#gameResult h3").html("You have defeated "+ defenderName+".  Choose your next enemy.");
 					gameState = "pickDefender";
 				$("#gameResult").show();
 				$("#restartButton").hide();

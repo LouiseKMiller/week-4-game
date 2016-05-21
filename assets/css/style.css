@@ -79,7 +79,8 @@ Other Typography
 
 h2 {
 	font-size: 35px;
-	text-shadow: 2px 1px #d00000;
+	color: #d00000;
+	text-shadow: 2px 1px #000000;
 	margin-top: 15px;
 	margin-bottom: 15px;
 }
@@ -90,7 +91,9 @@ h3, p {
 	margin-bottom: 5px;
 }
 
-
+h4, h5 {
+	font-size: 15px;
+}
 
 
 
